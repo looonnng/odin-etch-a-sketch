@@ -10,23 +10,37 @@ const createSquare = (numOfSquare) => {
     container.appendChild(square);
   }
 };
-createSquare(5);
+
+// Set default grid size for the slider
+const defaultGridSize = 5;
+const gridSize = document.querySelector("#gridSize");
+gridSize.value = defaultGridSize;
 
 //Color when hover
-const squares = document.querySelectorAll(".square");
 function hover(squares, color) {
   squares.forEach((square) =>
     square.addEventListener("mouseenter", (e) => square.classList.add(color))
   );
 }
-hover(squares, "color");
 
 //Reset button
 const resetButton = document.querySelector("#reset");
 resetButton.addEventListener("click", () => {
-  squares.forEach((square) => 
-    square.classList.remove("color")
-  );
+  const squares = document.querySelectorAll(".square");
+  squares.forEach((square) => square.classList.remove("color"));
 });
 
 //User input to resize grid
+gridSize.addEventListener("input", (e) => {
+  container.innerHTML = "";
+  createSquare(e.target.value);
+  const squares = document.querySelectorAll(".square");
+  hover(squares, "color");
+});
+
+// Initial grid size
+createSquare(defaultGridSize);
+
+// Initial hover for the initial squares
+const squares = document.querySelectorAll(".square");
+hover(squares, "color");
