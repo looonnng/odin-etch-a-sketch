@@ -13,20 +13,19 @@ body {
 }
 
 .container {
-  width: 41.5rem;
-  height: 41.5rem;
+  width: 41.75rem;
+  height: 41.75rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.25rem;
 }
 
 .square {
-  width: 10rem;
-  height: 10rem;
-  background-color: green;
+  background-color: #eee;
 }
 
-.red {
-  background-color: red;
+.color {
+  background-color: rgb(72, 4, 4);
 }
